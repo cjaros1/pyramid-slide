@@ -5,46 +5,72 @@
         #pyramid {
             line-height: 0;
             font-size: 30px;
+            color: rgb(208,0,144);
         }
 
         body {
             font-family: "Courier New", monospace;
             text-align: center;
         }
-
-        .invalid-field {
-            border: 1px solid red;
+        .titlebar{
+          background-color: rgb(208,0,144);
+          color:lightgray;
+          margin-left:20%;
+          margin-right:20%;
         }
 
-        .error-message {
-            color: red;
+        .options{
+          background-color: lightgray;
+          padding:15px;
+          margin-left:15px;
+          margin-right:15px;
+
+
         }
+        .pyramidbox{
+          background-color: #EEEEEE;
+          border-style:groove;
+          border-color: rgb(208,0,144);
+          border-radius:5px;
+          border-width: 1px;
+          margin-left: 30%;
+          margin-right: 30%;
+          padding-top:15px;
+        }
+
     </style>
 </head>
 <body>
+  <div class="titlebar">
     <h1>Pyramid Slide</h1>
+  </div>
 
-    <p>When you say</p>
-    <p><strong>Draw a pyramid</strong></p>
-    <p>I say:</p>
-    <br>
 
-    <form id="draw-form">
-        <label>
+
+      <div class="pyramidbox">
+        <label class="options">
+            <label>Brick Symbol: </label>
+            <select id="symbol" onchange="function()">
+              <option value="#" default>#</option>
+              <option value="$">$</option>
+              <option value="@">@</option>
+              <option value="X">X</option>
+            </select>
             How high?
-            <input type="text" id="height"/>
+            <input type="range" min="1" max="20" value="1" oninput="function()" id="height"/>
+            <label id="slider-value">1</label>
             <label class="error-message">
                 <!-- If there was a user error, we will put a message in here -->
             </label>
         </label>
         <br><br>
-        <input type="submit" value="Draw a pyramid"/>
-    </form>
+
 
     <br><br>
 
     <div id="pyramid"></div>
 
-    <script src="mario.js"></script>
+    <script src="pyramid-slide.js"></script>
+  </div>
 </body>
 </html>
